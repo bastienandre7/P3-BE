@@ -40,7 +40,8 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
         [HttpPost]
         public IActionResult Create(ProductViewModel product)
         {
-            List<string> modelErrors = _productService.CheckProductModelErrors(product);           
+            List<string> modelErrors = _productService.CheckProductModelErrors(product); 
+            
 
             foreach (string error in modelErrors)
             {

@@ -124,18 +124,24 @@
     <value>Veuillez saisir un prix</value>
   </data>
   <data name="MissingStock" xml:space="preserve">
-    <value>Veuillez saisir un stock</value>
+    <value>Veuillez saisir une quantité</value>
   </data>
   <data name="PriceNotANumber" xml:space="preserve">
     <value>La valeur saisie pour le prix doit être un nombre</value>
   </data>
+  <data name="PriceNotAPositiveNumber" xml:space="preserve">
+    <value>Le prix doit être un nombre positif</value>
+  </data>
   <data name="PriceNotGreaterThanZero" xml:space="preserve">
-    <value>La prix doit être supérieur à zéro</value>
+    <value>Le prix doit être supérieur à zéro</value>
   </data>
   <data name="StockNotAnInteger" xml:space="preserve">
     <value>La valeur saisie pour le stock doit être un entier</value>
   </data>
+  <data name="StockNotAPositiveInteger" xml:space="preserve">
+    <value>Le stock doit être un entier positif</value>
+  </data>
   <data name="StockNotGreaterThanZero" xml:space="preserve">
-    <value>La stock doit être supérieure à zéro</value>
+    <value>Le stock doit être supérieur à zéro</value>
   </data>
 </root>

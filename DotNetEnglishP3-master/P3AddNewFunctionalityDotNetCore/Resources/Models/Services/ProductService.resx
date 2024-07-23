@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MissingName" xml:space="preserve">
-    <value>Please enter a name</value>
+    <value />
   </data>
   <data name="MissingPrice" xml:space="preserve">
-    <value>Please enter a price</value>
+    <value />
   </data>
   <data name="MissingStock" xml:space="preserve">
-    <value>Please enter a stock value</value>
+    <value />
   </data>
   <data name="PriceNotANumber" xml:space="preserve">
-    <value>The value entered for the price must be a number</value>
+    <value />
   </data>
   <data name="PriceNotAPositiveNumber" xml:space="preserve">
-    <value>The price must be a positive number</value>
+    <value />
   </data>
   <data name="PriceNotGreaterThanZero" xml:space="preserve">
-    <value>The price must be a positive numer</value>
+    <value />
   </data>
   <data name="StockNotAnInteger" xml:space="preserve">
-    <value>The stock must be a positive integer</value>
+    <value />
   </data>
   <data name="StockNotAPositiveInteger" xml:space="preserve">
-    <value>The stock must be a positive integer</value>
+    <value />
   </data>
   <data name="StockNotGreaterThanZero" xml:space="preserve">
-    <value>The stock must be greater than zero</value>
+    <value />
   </data>
 </root>

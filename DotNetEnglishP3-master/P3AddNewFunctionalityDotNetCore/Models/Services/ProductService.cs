@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,11 +42,13 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
                 {
                     Id = product.Id,
                     Stock = product.Quantity.ToString(),
+                    //Stock = product.Quantity,
                     Price = product.Price.ToString(CultureInfo.InvariantCulture),
+                    //Price = product.Price,
                     Name = product.Name,
                     Description = product.Description,
                     Details = product.Details
-                });
+                }); ;
             }
 
             return products;
@@ -92,43 +95,15 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
 
         // TODO this is an example method, remove it and perform model validation using data annotations
         public List<string> CheckProductModelErrors(ProductViewModel product)
-        {
+        {           
             List<string> modelErrors = new List<string>();
-            if (product.Name == null || string.IsNullOrWhiteSpace(product.Name))
+            List<ValidationResult> modelValidations = new List<ValidationResult>();          
+            var ctx = new ValidationContext(product, null, null);
+            Validator.TryValidateObject(product, ctx, modelValidations, true);
+            foreach (var result in modelValidations)
             {
-                modelErrors.Add(_localizer["MissingName"]);
-            }
-
-            if (product.Price == null || string.IsNullOrWhiteSpace(product.Price))
-            {
-                modelErrors.Add(_localizer["MissingPrice"]);
-            }
-
-            if (!Double.TryParse(product.Price, out double pc))
-            {
-                modelErrors.Add(_localizer["PriceNotANumber"]);
-            }
-            else
-            {
-                if (pc <= 0)
-                    modelErrors.Add(_localizer["PriceNotGreaterThanZero"]);
-            }
-
-            if (product.Stock == null || string.IsNullOrWhiteSpace(product.Stock))
-            {
-                modelErrors.Add(_localizer["MissingQuantity"]);
-            }
-
-            if (!int.TryParse(product.Stock, out int qt))
-            {
-                modelErrors.Add(_localizer["StockNotAnInteger"]);
-            }
-            else
-            {
-                if (qt <= 0)
-                    modelErrors.Add(_localizer["StockNotGreaterThanZero"]);
-            }
-
+                modelErrors.Add(result.ErrorMessage);
+            }          
             return modelErrors;
         }
 
@@ -144,7 +119,9 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
             {
                 Name = product.Name,
                 Price = double.Parse(product.Price),
-                Quantity = Int32.Parse(product.Stock),
+                //Price = product.Price,
+                 Quantity = Int32.Parse(product.Stock),
+                //Quantity = product.Stock,
                 Description = product.Description,
                 Details = product.Details
             };
@@ -157,7 +134,6 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
             // delete the product form the cart by using the specific method
             // => the choice is up to the student
             _cart.RemoveLine(GetProductById(id));
-
             _productRepository.DeleteProduct(id);
         }
     }

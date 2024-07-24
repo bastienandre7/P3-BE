@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="Resources\Models\Order.en.resx" />
+    <EmbeddedResource Remove="Resources\Models\Order.es.resx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Resources\Models\Order.es.resx" />
     <None Include="Resources\Models\Order.en.resx" />
   </ItemGroup>
 
@@ -63,6 +65,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Models\Services\ProductService.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Models\Services\ProductService.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductService.Designer.cs</LastGenOutput>

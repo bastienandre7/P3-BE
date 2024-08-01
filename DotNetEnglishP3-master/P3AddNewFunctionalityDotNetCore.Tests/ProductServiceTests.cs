@@ -40,8 +40,9 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
         [Fact]
         public void MissingDataTest()
-        {   
+        {
             // Arrange
+            CultureInfo.CurrentUICulture = new CultureInfo("en");
             var product = new ProductViewModel
             {
                 Name = "",
@@ -56,9 +57,9 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
             //Assert
             Assert.Equal(3, result.Count);
-            Assert.Contains("Veuillez saisir un nom", result);
-            Assert.Contains("Veuillez saisir un prix", result);
-            Assert.Contains("Veuillez saisir une quantité", result);
+            Assert.Contains("Please enter a name", result);
+            Assert.Contains("Please enter a price", result);
+            Assert.Contains("Please enter a stock value", result);
 
         }
 
@@ -66,6 +67,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
         public void NegativePriceAndStockTest()
         {
             // Arrange
+            CultureInfo.CurrentUICulture = new CultureInfo("en");
             var product = new ProductViewModel
             {
                 Name = "Name",
@@ -80,14 +82,15 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
             //Assert
             Assert.Equal(2, result.Count);
-            Assert.Contains("Le stock doit être un entier positif", result);
-            Assert.Contains("Le prix doit être un nombre positif", result);
+            Assert.Contains("The stock must be a positive integer", result);
+            Assert.Contains("The price must be a positive number", result);
         }
 
         [Fact]
         public void InvalidPriceAndStockTest()
         {
             // Arrange
+            CultureInfo.CurrentUICulture = new CultureInfo("en");
             var product = new ProductViewModel
             {
                 Name = "Name",
@@ -102,8 +105,8 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
             //Assert
             Assert.Equal(2, result.Count);
-            Assert.Contains("Le stock doit être un entier positif", result);
-            Assert.Contains("Le prix doit être un nombre positif", result);
+            Assert.Contains("The stock must be a positive integer", result);
+            Assert.Contains("The price must be a positive number", result);
         }
 
         [Fact]
@@ -130,6 +133,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
         public void CommaSeparatorTest()
         {
             // Arrange
+            CultureInfo.CurrentUICulture = new CultureInfo("en");
             var product = new ProductViewModel
             {
                 Name = "Name",
@@ -144,13 +148,14 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
             //Assert
             Assert.Single(result);
-            Assert.Contains("Le stock doit être un entier positif", result);
+            Assert.Contains("The stock must be a positive integer", result);
         }
 
         [Fact]
         public void DotSeparatorTest()
         {
             // Arrange
+            CultureInfo.CurrentUICulture = new CultureInfo("en");
             var product = new ProductViewModel
             {
                 Name = "Name",
@@ -165,7 +170,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
 
             //Assert
             Assert.Single(result);
-            Assert.Contains("Le stock doit être un entier positif", result);
+            Assert.Contains("The stock must be a positive integer", result);
         }            
              
         [Fact]
